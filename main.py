@@ -1,5 +1,6 @@
 import sys
 
+
 def read_file(file_path):
     with open(file_path, "r") as file:
         return file.readlines()
@@ -16,15 +17,21 @@ def contains(file_path, data):
     else:
         print("Nie zawiera")
 
+def add(file_path, add_text):
+    file = read_file(file_path)
+    file += add_text
+    file += "\n"
+    save_to_file(file_path, file)
+
+
 def run_program(name, params):
     print(params)
     if params[0] == 'contains':
-        contains("tukan.txt", params[1])
+        contains("file.txt", params[1])
+    if params[0] == 'add':
+        add("file.txt", params[1])
+
 
 if __name__ == '__main__':
     args = sys.argv
     run_program('PyCharm', sys.argv[1:])
-
-
-
-
