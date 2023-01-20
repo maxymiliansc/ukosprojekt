@@ -18,10 +18,9 @@ def contains(file_path, data):
         print("Nie zawiera")
 
 def add(file_path, add_text):
-    file = read_file(file_path)
-    file += add_text
-    file += "\n"
-    save_to_file(file_path, file)
+    file_contents = read_file(file_path)
+    file_contents.append(add_text)
+    save_to_file(file_path, "\n".join(file_contents))
 
 
 def run_program(name, params):
